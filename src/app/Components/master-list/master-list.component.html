@@ -1,5 +1,14 @@
-<mat-toolbar layout="row" layout-align="center center"  color="primary" class="page-title">
-    <span>Poles</span>
+
+
+<mat-toolbar layout="row" color="" class="action-toolbar">
+  <button mat-raised-button color="primary">
+    Submit List
+    <mat-icon>add</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-toolbar layout="row"  color="primary" class="page-title">
+    <span>Poles List</span>
 </mat-toolbar>
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -121,3 +130,5 @@
       (click)="selection.toggle(row)">
   </tr>
 </table>
+
+<app-upload-file></app-upload-file>

@@ -14,13 +14,17 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatButtonModule} from '@angular/material/button';
 import { MasterListComponent } from './Components/master-list/master-list.component';
-
+import { UploadFileComponent } from './Components/upload-file/upload-file.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    MasterListComponent
+    MasterListComponent,
+    UploadFileComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +37,10 @@ import { MasterListComponent } from './Components/master-list/master-list.compon
     MatIconModule,
     MatSidenavModule,
     MatButtonModule,
+    MatCardModule,
+    MatProgressBarModule,
+    MatSnackBarModule
+    
   ],
   providers: [PlmasterService],
   bootstrap: [AppComponent]

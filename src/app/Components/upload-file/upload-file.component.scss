@@ -1,0 +1,55 @@
+:host {
+    height: 100%;
+}
+
+.container-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    // background-image: url("/assets/uploadBackground.svg");
+    background-repeat: no-repeat;
+    background-position-x: left;
+    background-size: cover;
+    // @media only screen and (max-width: 992px) {
+    //   background-size: 100%;
+    // }
+}
+
+mat-card {
+    &.custom-card {
+      max-width: 800px;
+    }
+    .mat-card-actions {
+      margin: 0px !important;
+    }
+  
+    & h1 {
+      color: var(--primary);
+    }
+
+    h3.doc-description {
+      background-color: papayawhip;
+      font-weight: 500;
+      padding: 0px 8px 0px 8px;
+      border-radius: 3px;
+    }
+  }
+
+  mat-card.mat-mdc-card.mdc-card {
+    row-gap: 5px;
+}
+  
+  .error-message {
+    background-color: var(--warm);
+    border-radius: 5px;
+    margin: 2px;
+    padding: 5px;
+  }
+
+  .success-message {
+    background-color: var(--green);
+    border-radius: 5px;
+    margin: 2px;
+    padding: 5px;
+  }
