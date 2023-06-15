@@ -53,3 +53,17 @@ mat-card {
     margin: 2px;
     padding: 5px;
   }
+
+  #close-button {
+   transform: translate(0px, 8px);
+   padding-top: 0px;
+   padding-bottom: 0px;
+   height: 24px;
+   width: 28px;
+   margin-right: 28px;
+   padding: 0px;
+  }
+
+  .file-name {
+    margin: 0px 20px;
+  }

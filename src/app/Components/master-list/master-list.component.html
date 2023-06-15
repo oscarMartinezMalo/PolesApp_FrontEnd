@@ -1,10 +1,7 @@
 
 
 <mat-toolbar layout="row" color="" class="action-toolbar">
-  <button mat-raised-button color="primary">
-    Submit List
-    <mat-icon>add</mat-icon>
-  </button>
+  <app-upload-file></app-upload-file>
 </mat-toolbar>
 
 <mat-toolbar layout="row"  color="primary" class="page-title">
@@ -130,5 +127,3 @@
       (click)="selection.toggle(row)">
   </tr>
 </table>
-
-<app-upload-file></app-upload-file>
