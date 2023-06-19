@@ -3,6 +3,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 import { ProgressBarMode } from '@angular/material/progress-bar';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { DocumentService } from 'src/app/shared/services/document.service';
 
 @Component({
   selector: 'app-upload-file',
@@ -26,7 +27,7 @@ export class UploadFileComponent {
   readonly BASE_URL = `test`;
 
   constructor( 
-    // private documentService: DocumentService,    
+    private documentService: DocumentService,    
     private snackBar: MatSnackBar,
     ) { }
 
@@ -56,22 +57,23 @@ export class UploadFileComponent {
   }
 
   private uploadDocumentWithUser(fd: FormData){
-    // this.documentService.uploadDocument(fd)
-    // .subscribe(
-    //   event => {
-    //     if( event.type == HttpEventType.UploadProgress){
-    //       this.progressBarValue = Math.round(event.loaded/ event.total * 100 );
-    //     } 
-    //     else if (event.type == HttpEventType.Response){
-    //       this.onRemoveDocument();
-    //       this.fileUploadedMessage = 'showSuccess';
-    //     } 
-    //   },
-    //   error => {
-    //     this.fileUploadedMessage = 'showError';
-    //     this.progressBarValue = 0;
-    //   }
-    // )
+    console.log(fd);
+    this.documentService.uploadDocument(fd)
+    .subscribe({
+      next: (event) =>{
+        if( event.type == HttpEventType.UploadProgress){
+          this.progressBarValue = Math.round(event.loaded/ event.total * 100 );
+        } 
+        else if (event.type == HttpEventType.Response){
+          this.onRemoveDocument();
+          this.fileUploadedMessage = 'showSuccess';
+        } 
+      },
+      error(err) {
+        this.fileUploadedMessage = 'showError';
+        this.progressBarValue = 0;
+      },
+    })
   }
 
   onRemoveDocument() {
