@@ -57,7 +57,7 @@ export class UploadFileComponent {
   }
 
   private uploadDocumentWithUser(fd: FormData){
-    console.log(fd);
+
     this.documentService.uploadDocument(fd)
     .subscribe({
       next: (event) =>{
@@ -69,9 +69,9 @@ export class UploadFileComponent {
           this.fileUploadedMessage = 'showSuccess';
         } 
       },
-      error(err) {
-        this.fileUploadedMessage = 'showError';
-        this.progressBarValue = 0;
+      error:(err) => {
+          this.fileUploadedMessage = 'showError';
+          this.progressBarValue = 0;
       },
     })
   }
