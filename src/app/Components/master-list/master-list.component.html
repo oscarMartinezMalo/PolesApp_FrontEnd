@@ -1,7 +1,7 @@
 
 
 <mat-toolbar layout="row" color="" class="action-toolbar">
-  <app-upload-file></app-upload-file>
+  <app-upload-file  (newFileEvent)="newFileSubmitted($event)"></app-upload-file>
 </mat-toolbar>
 
 <mat-toolbar layout="row"  color="primary" class="page-title">

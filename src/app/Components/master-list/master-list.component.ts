@@ -21,7 +21,11 @@ export class MasterListComponent implements OnInit {
   constructor(private plMasterService: PlmasterService){ }
 
   async ngOnInit(): Promise<void> {    
-    let poles: Pole[] = await this.plMasterService.getCaseListOfLawyerAsync();
+    await this.getMasterList();
+  }
+
+  async getMasterList() {
+    let poles: Pole[] = await this.plMasterService.getPlMasterListAsync();
     this.dataSource = new MatTableDataSource<Pole>(poles); 
   }
 
@@ -49,6 +53,11 @@ export class MasterListComponent implements OnInit {
       }
 
       return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.id + 1}`;
+    }
+
+    async newFileSubmitted(newFile: string) {
+      //Refresh list when upload is completed
+      await this.getMasterList();
     }
 }
 

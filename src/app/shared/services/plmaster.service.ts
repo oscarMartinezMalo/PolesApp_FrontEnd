@@ -11,7 +11,7 @@ export class PlmasterService {
 
   constructor(private http: HttpClient) { }
 
-  async getCaseListOfLawyerAsync(): Promise<any[]>{
+  async getPlMasterListAsync(): Promise<any[]>{
     let cases = await lastValueFrom(this.http.get(this.BASE_URL).pipe(take(1)));
 
     return cases as any;

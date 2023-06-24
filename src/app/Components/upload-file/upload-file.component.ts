@@ -4,6 +4,7 @@ import { ThemePalette } from '@angular/material/core';
 import { ProgressBarMode } from '@angular/material/progress-bar';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DocumentService } from 'src/app/shared/services/document.service';
+import { Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-upload-file',
@@ -12,6 +13,8 @@ import { DocumentService } from 'src/app/shared/services/document.service';
 })
 export class UploadFileComponent {
   @ViewChild('fileInput') fileInput: ElementRef | undefined;
+  @Output() newFileEvent = new EventEmitter<string>();
+
   selectedFile: File = null;
   fileSelectedName = '';
   fileUploadedMessage: string = 'noShow';
@@ -67,6 +70,7 @@ export class UploadFileComponent {
         else if (event.type == HttpEventType.Response){
           this.onRemoveDocument();
           this.fileUploadedMessage = 'showSuccess';
+          this.newFileEvent.emit("fileSubmitted");
         } 
       },
       error:(err) => {
