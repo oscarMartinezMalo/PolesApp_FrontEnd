@@ -16,7 +16,7 @@
             <input #fileInput type="file" style="display: none;" (change)="onFileSelected($event)">
             <button class="action-button" mat-flat-button color="primary"  type="button" (click)="fileInput.click(); showSpinner= true">
                 <mat-icon>add</mat-icon>
-                <span>Select File (xlsx)</span>
+                <span>Select Files (xlsx)</span>
                 <!-- <mat-spinner *ngIf="showSpinner" color="accent" diameter="20" style="display: inline-block;"></mat-spinner> -->
             </button>
               <span *ngIf="fileSelectedName" class="file-name" style="font-size: small;">{{fileSelectedName}}</span>
